@@ -1,0 +1,53 @@
+def sum(a, total):
+    total += a
+    return total
+
+def sub(a, total):
+    total -= a
+    return total
+
+def mul(a, total):
+    total *= a
+    return total
+
+def div(a, total):
+    total /= a
+    return total
+
+def clear(total):
+    total = 0
+    return total
+
+total = 0
+while True:
+    b = input("(a)add (b)subtract (c)divide (d)multiply (e)clear: ").lower()
+    if b not in ("a","b","c","d","e"):
+        print("input a valid operator!")
+        pass
+    elif b == "e":
+        total = clear(total)
+        print(f'Total: {total}')
+    else:
+        while True:
+            a = input("Input a number: ")
+            if a.isdigit():
+                a = int(a)
+                if b == "a":
+                    total = sum(a, total)
+                    print(f'Total: {total}')
+                    break
+                elif b == "b":
+                    total = sub(a, total)
+                    print(f'Total: {total}')
+                    break
+                elif b == "c":
+                    total = div(a, total)
+                    print(f'Total: {total}')
+                    break
+                elif b == "d":
+                    total = mul(a, total)
+                    print(f'Total: {total}')
+                    break
+            else:
+                print("Please input a proper number!")
+                pass
